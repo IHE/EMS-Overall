@@ -29,8 +29,12 @@ deactivate Hospital
 
 Ambulance -> HIE: Query for Discarge Summary
 Ambulance <-- HIE: Here is the Discarge Summary details
-
-Ambulance -> Ambulance: Happy the patient survived
-deactivate Ambulance
 deactivate HIE
+
+Ambulance -> Ambulance: extract some elements
+Ambulance -> Ambulance: Create NEMSIS report
+Ambulance -> State: Deliver NEMSIS report and Discharge Summary to the state
+
+deactivate Ambulance
+
 @enduml
