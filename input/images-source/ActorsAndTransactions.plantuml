@@ -1,5 +1,8 @@
 @startuml
-agent "Client" as Client
-agent "Server" as Server
-Client -- Server : "go [domain-YY] ↓"
+agent "Ambulance" as Ambulance
+agent "Hospital" as Hospital
+agent "Health Information Exchange" as HIE
+Ambulance -down-- HIE : "Query/Retrieve"
+Hospital -down-- HIE : "Query/Retrieve"
+Ambulance -right-- Hospital : "Content Profiles"
 @enduml

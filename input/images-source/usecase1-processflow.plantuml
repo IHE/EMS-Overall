@@ -1,12 +1,36 @@
 @startuml
-skinparam svgDimensionStyle false
-hide footbox
-participant "Client" as Client
-participant "Server" as Server
-activate "Client"
-"Client" -> "Server" : 1. Go Query [domain-YY]
-activate "Server"
-"Server" --> "Client" : 2. Go Response [domain-YY]
-deactivate "Client"
-deactivate "Server"
+participant "Ambulance" as Ambulance
+participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
+autonumber
+activate Ambulance
+activate HIE
+Ambulance -> HIE: Get Medical Summary
+Ambulance <-- HIE: Here is the latest Medical Summary
+Note left of Ambulance: [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
+
+Ambulance -> Ambulance: utalize Medical Summary to treat patient
+
+activate Hospital
+Ambulance -> Hospital: Push Transport Summary 
+Note left of Ambulance: [[https://www.ihe.net//uploadedFiles/Documents/PCC/IHE_PCC_Suppl_PCS.pdf IHE-Paramedicine Care Summary (PCS)]]
+
+Ambulance -> Hospital: drop off Patient at ED
+
+Hospital-> Hospital: Admit patient
+
+Hospital -> Ambulance: post-it note of Admit details
+
+Ambulance -> HIE: Query, is the patient discharged yet? 
+Ambulance <-- HIE: Not yet
+
+Hospital -> Hospital: Discarge Patient
+Hospital -> HIE: Publish Discharge Summary
+deactivate Hospital
+
+Ambulance -> HIE: Query for Discarge Summary
+Ambulance <-- HIE: Here is the Discarge Summary details
+
+Ambulance -> Ambulance: Happy the patient survived
+deactivate Ambulance
+deactivate HIE
 @enduml
