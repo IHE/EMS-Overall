@@ -12,7 +12,7 @@ Actors and transactions are used to achieve this use-case...
 This section defines the actors and transactions in this implementation guide.
 
 Figure below shows the actors directly
-involved in the FooBar 
+involved in the EMS-Overview 
 Profile and the relevant transactions between them.
 
 <div>
@@ -20,5 +20,5 @@ Profile and the relevant transactions between them.
 </div>
 <br clear="all">
 
-**Figure: FooBar Actor Diagram**
+**Figure: EMS-Overview Actor Diagram**
 
