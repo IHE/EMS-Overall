@@ -1,9 +1,5 @@
 
-This section defines the actors and transactions in this implementation guide.
-
-Figure below shows the actors directly
-involved in the EMS-Overview 
-Profile and the relevant transactions between them.
+The overall flow includes an Ambulance representing all of the EMS community, Health Information Exhange representing the infrastructure supporting Interoperability accross a Community, and a Hospital representing a Care Service delivery organization. The use of "Ambulance" or "Hospital" is not intended to constrain broader understanding of these concepts.
 
 <div>
 {%include ActorsAndTransactions.svg%}
@@ -11,6 +7,15 @@ Profile and the relevant transactions between them.
 <br clear="all">
 
 **Figure: EMS-Overview Actor Diagram**
+
+This section contains guidance on IHE offerings for Health Information Exchange:
+
+- [Document Sharing Health Information Exchange](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html) Whitepaper
+- [Document Sharing](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#3-document-sharing-profiles): Profiles
+- [Consuming data as FHIR Resources](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#4-consuming-data-as-fhir-resources): Profiles, and Content
+- [Patient identity Management](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#5-patient-identity-management): Whitepaper, and Profiles
+- [Provider Directory Solutions](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#6-common-provider-directory): Profiles, and Content
+- [Security and Privacy Solutions](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#7-security-and-privacy): Handbooks, Profiles, and Content
 
 ### Use-case Paramedicine Care Flow
 
