@@ -1,5 +1,5 @@
 @startuml
-title Paramedicine Care flow
+title Routine Interfacility Patient Transport
 participant "Ambulance" as Ambulance
 participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
 autonumber
@@ -13,9 +13,9 @@ Ambulance -> Ambulance: utalize Medical Summary to treat patient
 
 activate Hospital
 Ambulance -> Hospital: Push Transport Summary 
-Note left of Ambulance: [[https://www.ihe.net//uploadedFiles/Documents/PCC/IHE_PCC_Suppl_PCS.pdf IHE-Paramedicine Care Summary (PCS)]]
+Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_RIPT.pdf IHE-Routine Interfaciliyt Patient Transport (RIPT)]]
 
-Ambulance -> Hospital: drop off Patient at ED
+Ambulance -> Hospital: drop off Patient at destination Hospital
 
 Hospital-> Hospital: Admit patient
 
