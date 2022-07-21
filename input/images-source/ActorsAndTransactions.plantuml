@@ -4,5 +4,5 @@ agent "Hospital" as Hospital
 agent "Health Information Exchange" as HIE
 Ambulance -down-- HIE : "Query/Retrieve"
 Hospital -down-- HIE : "Query/Retrieve"
-Ambulance -right-- Hospital : "Content Profiles"
+Ambulance -right- Hospital #line.dashed : "Content Profiles"
 @enduml
