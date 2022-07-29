@@ -1,4 +1,5 @@
 @startuml
+skinparam svgDimensionStyle false
 title Paramedicine Care flow
 participant "Ambulance" as Ambulance
 participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
