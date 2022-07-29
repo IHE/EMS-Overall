@@ -6,8 +6,9 @@ autonumber
 activate Ambulance
 activate HIE
 Ambulance -> HIE: Get Medical Summary
+Note left of Ambulance: Query for classCode=LOINC 34133-9\nLikely OnDemand Document Entry
 Ambulance <-- HIE: Here is the latest Medical Summary
-Note left of Ambulance: [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
+Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=4_Exchange_of_Personal_Health_R CCD / IHE-XPHR]], [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
 
 Ambulance -> Ambulance: utalize Medical Summary to treat patient
 
@@ -22,7 +23,6 @@ Hospital-> Hospital: Admit patient
 Hospital -> Ambulance: Admit details
 
 Ambulance -> HIE: Query, is the patient discharged yet? 
-Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=3_4_2_2_Discharge_Summary_Optio XDS-MS Discharge Summary Option]] or \n[[https://www.hl7.org/ccdasearch/templates/2.16.840.1.113883.10.20.22.1.8.html C-CDA Discharge Summary Option]]
 Note left of Ambulance: Query for classCode=LOINC 18842-5\nbetter - serviceStartTime=(time patient was dropped off)\nbest - referenceIdList=(admit detail)
 Ambulance <-- HIE: Not yet
 
@@ -32,6 +32,7 @@ deactivate Hospital
 
 Ambulance -> HIE: Query for Discarge Summary
 Ambulance <-- HIE: Here is the Discarge Summary details
+Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=3_4_2_2_Discharge_Summary_Optio XDS-MS Discharge Summary Option]] or \n[[https://www.hl7.org/ccdasearch/templates/2.16.840.1.113883.10.20.22.1.8.html C-CDA Discharge Summary Option]]
 deactivate HIE
 
 Ambulance -> Ambulance: extract some elements
