@@ -23,6 +23,7 @@ Hospital -> Ambulance: Admit details
 
 Ambulance -> HIE: Query, is the patient discharged yet? 
 Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=3_4_2_2_Discharge_Summary_Optio XDS-MS Discharge Summary Option]] or \n[[https://www.hl7.org/ccdasearch/templates/2.16.840.1.113883.10.20.22.1.8.html C-CDA Discharge Summary Option]]
+Note left of Ambulance: Query for classCode=LOINC 18842-5\nbetter - serviceStartTime=(time patient was dropped off)\nbest - referenceIdList=(admit detail)
 Ambulance <-- HIE: Not yet
 
 Hospital -> Hospital: Discarge Patient
