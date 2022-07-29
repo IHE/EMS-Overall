@@ -19,9 +19,10 @@ Ambulance -> Hospital: drop off Patient at ED
 
 Hospital-> Hospital: Admit patient
 
-Hospital -> Ambulance: post-it note of Admit details
+Hospital -> Ambulance: Admit details
 
 Ambulance -> HIE: Query, is the patient discharged yet? 
+Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=3_4_2_2_Discharge_Summary_Optio XDS-MS Discharge Summary Option]] or \n[[https://www.hl7.org/ccdasearch/templates/2.16.840.1.113883.10.20.22.1.8.html C-CDA Discharge Summary Option]]
 Ambulance <-- HIE: Not yet
 
 Hospital -> Hospital: Discarge Patient
@@ -33,7 +34,8 @@ Ambulance <-- HIE: Here is the Discarge Summary details
 deactivate HIE
 
 Ambulance -> Ambulance: extract some elements
-Ambulance -> Ambulance: Create NEMSIS report
+Ambulance -> Ambulance: Insert the received outcome data into the existing NEMSIS PCR
+Note left of Ambulance: [[https://nemsis.org/technical-resources NEMSIS PCR]]
 Ambulance -> State: Deliver NEMSIS report and Discharge Summary to the state
 
 deactivate Ambulance
