@@ -1,5 +1,5 @@
 
-The overall flow includes an Ambulance representing all of the EMS community, Health Information Exhange representing the infrastructure supporting Interoperability accross a Community, and a Hospital representing a Care Service delivery organization. The use of "Ambulance" or "Hospital" is not intended to constrain broader understanding of these concepts.
+The overall flow includes an Ambulance representing all of the EMS community, Health Information Exchange representing the infrastructure supporting Interoperability across a Community, and a Hospital representing a Care Service delivery organization. The use of "Ambulance" or "Hospital" is not intended to constrain broader understanding of these concepts.
 
 <div>
 {%include ActorsAndTransactions.svg%}
@@ -8,7 +8,7 @@ The overall flow includes an Ambulance representing all of the EMS community, He
 
 **Figure: EMS-Overview Actor Diagram**
 
-This section contains guidance on IHE offerings for Health Information Exchange:
+This section contains guidance on [IHE](https://profiles.ihe.net) offerings for Health Information Exchange:
 
 - [Document Sharing Health Information Exchange](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html) Whitepaper
 - [Document Sharing](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#3-document-sharing-profiles): Profiles
@@ -16,6 +16,8 @@ This section contains guidance on IHE offerings for Health Information Exchange:
 - [Patient identity Management](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#5-patient-identity-management): Whitepaper, and Profiles
 - [Provider Directory Solutions](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#6-common-provider-directory): Profiles, and Content
 - [Security and Privacy Solutions](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#7-security-and-privacy): Handbooks, Profiles, and Content
+
+YouTube [webinar recording](https://www.youtube.com/watch?v=3sDgnS71m4o)
 
 ### Use-case Paramedicine Care Flow
 
