@@ -21,14 +21,31 @@ YouTube [webinar recording](https://www.youtube.com/watch?v=3sDgnS71m4o)
 
 ### General IHE based HIE interaction
 
-This is the general flow for interaction with an IHE based HIE. Breaks down to: Patient Discovery, Query for Documents, and Retrieve Document. 
+This is the general flow for interaction with an IHE based HIE. 
+
+#### Use documents from HIE
+
+Breaks down to: Patient Discovery, Query for Documents, and Retrieve Document. 
 
 <div>
 {%include usecase0-processflow.svg%}
 </div>
 <br clear="all">
 
-**Figure: Use Case 1 Process Flow**
+**Figure: Use Case 0 General Consumer Process Flow**
+
+#### Publish documents to HIE
+
+There are two alternatives. The first one shown is where one uses the HIE as a mode of pushing the content to the Destination. In this mode the document is not persisted anywhere, although the Destination may choose to locally use and persist on their own system.
+
+The second alternative has the Source Publish the document. This does not have an external interop transaction in XCA, until some other system queries. Thus this mode can be enhanced with a notification to the Destination that the document is available. That notification drives the query and retrieve as discussed above.
+
+<div>
+{%include usecase00-processflow.svg%}
+</div>
+<br clear="all">
+
+**Figure: Use Case 00 General Publication Process Flow**
 
 ### Use-case Paramedicine Care Flow
 
