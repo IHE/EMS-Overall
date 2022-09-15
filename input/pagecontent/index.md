@@ -19,6 +19,17 @@ This section contains guidance on [IHE](https://profiles.ihe.net) offerings for 
 
 YouTube [webinar recording](https://www.youtube.com/watch?v=3sDgnS71m4o)
 
+### General IHE based HIE interaction
+
+This is the general flow for interaction with an IHE based HIE. Breaks down to: Patient Discovery, Query for Documents, and Retrieve Document. 
+
+<div>
+{%include usecase0-processflow.svg%}
+</div>
+<br clear="all">
+
+**Figure: Use Case 1 Process Flow**
+
 ### Use-case Paramedicine Care Flow
 
 When a patient is transported for a medical emergency to a hospital, scene information, transfer 
