@@ -1,5 +1,5 @@
 @startuml
-title Routine Interfacility Patient Transport
+title Routine Interfacility Patient Transport Flow
 participant "Ambulance" as Ambulance
 participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
 autonumber
@@ -9,32 +9,32 @@ Ambulance -> HIE: Get Medical Summary
 Ambulance <-- HIE: Here is the latest Medical Summary
 Note left of Ambulance: [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
 
-Ambulance -> Ambulance: utalize Medical Summary to treat patient
+Ambulance -> Ambulance: Utilize Medical Summary to treat patient
 
 activate Hospital
-Ambulance -> Hospital: Push Transport Summary 
-Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_RIPT.pdf IHE-Routine Interfaciliyt Patient Transport (RIPT)]]
+Ambulance -> Hospital: Push transport summary 
+Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_RIPT.pdf IHE-Routine Interfacility Patient Transport (RIPT)]]
 
-Ambulance -> Hospital: drop off Patient at destination Hospital
+Ambulance -> Hospital: Drop off patient at destination Hospital
 
 Hospital-> Hospital: Admit patient
 
-Hospital -> Ambulance: post-it note of Admit details
+Hospital -> Ambulance: Post-it note of admit details
 
 Ambulance -> HIE: Query, is the patient discharged yet? 
 Ambulance <-- HIE: Not yet
 
-Hospital -> Hospital: Discarge Patient
+Hospital -> Hospital: Discharge Patient
 Hospital -> HIE: Publish Discharge Summary
 deactivate Hospital
 
-Ambulance -> HIE: Query for Discarge Summary
-Ambulance <-- HIE: Here is the Discarge Summary details
+Ambulance -> HIE: Query for Discharge Summary
+Ambulance <-- HIE: Here is the Discharge Summary details
 deactivate HIE
 
-Ambulance -> Ambulance: extract some elements
-Ambulance -> Ambulance: Create NEMSIS report
-Ambulance -> State: Deliver NEMSIS report and Discharge Summary to the state
+Ambulance -> Ambulance: Extract some data elements
+Ambulance -> Ambulance: Create NEMSIS PCR
+Ambulance -> State: Deliver NEMSIS PCR including outcome data to the state
 
 deactivate Ambulance
 
