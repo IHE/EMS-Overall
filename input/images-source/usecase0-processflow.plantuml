@@ -1,6 +1,6 @@
 @startuml
 skinparam svgDimensionStyle false
-title General HIE flow
+title General HIE Flow
 participant "Consumer" as Consumer
 participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
 autonumber
@@ -8,7 +8,7 @@ activate Consumer
 activate HIE
 
 group Patient Discovery (PD)
-Consumer -> HIE: Patient Lookup by Demographics
+Consumer -> HIE: Patient lookup by demographics
 Note left of Consumer: Provide whatever details are known
 Consumer <- HIE: Here are closest matches
 Consumer -> Consumer: Review results for best match
@@ -16,15 +16,15 @@ end group
 
 group Query for Documents (QD)
 Consumer -> HIE: Look for Medical Summary
-Note left of Consumer: Query for classCode=LOINC 34133-9\nLikely OnDemand Document Entry
-Consumer <-- HIE: Here is the list of possible Medical Summary(s)
+Note left of Consumer: Query for classCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely OnDemand Document Entry.
+Consumer <-- HIE: Here is the list of possible Medical Summaries
 Note left of Consumer: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=4_Exchange_of_Personal_Health_R CCD / IHE-XPHR]], [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
-Consumer -> Consumer: pick the freshest or best entry from available document entries
+Consumer -> Consumer: Pick the freshest or best entry from available document entries
 end group
 
 group Retrieve Document (RD)
-Consumer -> HIE: Retrieve this Document
-Consumer -> Consumer: utilize Medical Summary to treat patient
+Consumer -> HIE: Retrieve this document
+Consumer -> Consumer: Utilize Medical Summary to treat patient
 end group
 
 deactivate HIE
