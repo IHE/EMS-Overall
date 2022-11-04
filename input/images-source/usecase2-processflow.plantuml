@@ -1,39 +1,59 @@
 @startuml
+skinparam svgDimensionStyle false
 title Routine Interfacility Patient Transport Flow
 participant "Ambulance" as Ambulance
 participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
 autonumber
 activate Ambulance
 activate HIE
-Ambulance -> HIE: Get Medical Summary
-Ambulance <-- HIE: Here is the latest Medical Summary
-Note left of Ambulance: [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
+Ambulance -> HIE: (PD) Patient lookup by demographics
+Ambulance -> Ambulance: Review results for best patient match
 
+Ambulance -> HIE: (QD) Look for Medical Summary
+Note right of Ambulance: Query for classCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#212-dynamic-documents OnDemand Document Entry]].
+Ambulance <-- HIE: Here is the list of possible Medical Summaries
+Note right of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=4_Exchange_of_Personal_Health_R CCD / IHE-XPHR]], [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
+Ambulance -> Ambulance: pick the freshest or best entry from available document entries
+
+Ambulance -> HIE: (RD) Retrieve this document
 Ambulance -> Ambulance: Utilize Medical Summary to treat patient
 
 activate Hospital
-Ambulance -> Hospital: Push transport summary 
+Ambulance -> Hospital: (PUSH) transport summary 
 Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_RIPT.pdf IHE-Routine Interfacility Patient Transport (RIPT)]]
 
-Ambulance -> Hospital: Drop off patient at destination Hospital
+Ambulance -> Hospital: Drop off patient at Emergency Department
 
-Hospital-> Hospital: Admit patient
+Hospital-> Hospital: Admit patient (ADT)
 
-Hospital -> Ambulance: Post-it note of admit details
+Hospital -> Ambulance: Admit details (undefined method)
+Note right of Ambulance: John/Jane Doe handling with temporary identity
 
-Ambulance -> HIE: Query, is the patient discharged yet? 
-Ambulance <-- HIE: Not yet
+Note right of Ambulance: Need Discharge Summary for reporting\nQuery for classCode=LOINC [[https://loinc.org/18842-5/ 18842-5]]\n* Better - serviceStartTime=(time patient was dropped off)\n* Best - referenceIdList=(admit detail)\nDocument Content:\n* [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=3_4_2_2_Discharge_Summary_Optio XDS-MS Discharge Summary Option]] or \n* [[https://www.hl7.org/ccdasearch/templates/2.16.840.1.113883.10.20.22.1.8.html C-CDA Discharge Summary Option]]
+group alt 1: Subscribe
+    Note right of Ambulance: could subscribe if HIE supports XDS Subscribe
+    Ambulance -> HIE: Subscribe for Discharge Summary on this patient 
+end group
+group alt 2: Poll
+    Note right of Ambulance: must poll if subscribe is not available, or cross-community
+    Ambulance -> HIE: (QD) Query, is the patient discharged yet? 
+    Ambulance <-- HIE: Not yet
 
-Hospital -> Hospital: Discharge Patient
-Hospital -> HIE: Publish Discharge Summary
-deactivate Hospital
+    Hospital -> Hospital: Discharge patient (ADT)
+    Hospital -> HIE: (Publish) Discharge Summary
+    deactivate Hospital
 
-Ambulance -> HIE: Query for Discharge Summary
+    Ambulance -> HIE: (QD) Query for Discharge Summary
+end group
 Ambulance <-- HIE: Here is the Discharge Summary details
+Ambulance -> Hospital: (RD) Retrieve Discharge Summary
+Ambulance <-- Hospital: Here is the Discharge Summary
 deactivate HIE
 
-Ambulance -> Ambulance: Extract some data elements
-Ambulance -> Ambulance: Create NEMSIS PCR
+
+Ambulance -> Ambulance: Extract some elements
+Ambulance -> Ambulance: Insert the received outcome data into the existing NEMSIS PCR
+Note right of Ambulance: [[https://nemsis.org/technical-resources NEMSIS PCR]]
 Ambulance -> State: Deliver NEMSIS PCR including outcome data to the state
 
 deactivate Ambulance
