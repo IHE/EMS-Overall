@@ -1,4 +1,3 @@
-#### Publish Documents to HIE
 
 There are two alternatives. The first one shown is where one uses the HIE as a mode of pushing the content to the Destination. In this mode the document is not persisted anywhere, although the Destination may choose to locally use and persist on their own system.
 

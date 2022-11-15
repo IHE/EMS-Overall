@@ -56,11 +56,25 @@ pages:
   index.md:
     title: EMS-Overview Home
     generation: markdown
+  pdqdrd.md:
+    title: Consuming Document Sharing
+    generation: markdown
   publish.md:
     title: Publishing in Document Sharing 
     generation: markdown
+  pcf.md:
+    title: 'Use Case: Paramedicine Care Flow'
+    generation: markdown
+  ript.md:
+    title: 'Use Case: Routine Interfacility Patient Transport'
+    generation: markdown
     
 menu:
-  EMS-Overview Home: index.html
-  Publishing: publish.html
+  Home: index.html
+  Doc-Sharing: 
+    Consuming: pdqdrd.html
+    Publishing: publish.html
+  EMS-Flows:
+    Paramedicine Care Flow: pcf.html
+    Routine Interfacility Patient Transport: ript.html
 

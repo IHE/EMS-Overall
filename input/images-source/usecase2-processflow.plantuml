@@ -1,6 +1,6 @@
 @startuml
 skinparam svgDimensionStyle false
-title Routine Interfacility Patient Transport Flow
+title Detailed - Routine Interfacility Patient Transport Flow
 participant "Ambulance" as Ambulance
 participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
 autonumber
