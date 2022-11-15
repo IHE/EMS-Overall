@@ -34,7 +34,7 @@ Breaks down to: Patient Discovery, Query for Documents, and Retrieve Document.
 
 **Figure: Use Case 0 General Consumer Process Flow**
 
-
+The [publication details have multiple paths](publish.html)
 
 ### Use Case: Paramedicine Care Flow
 

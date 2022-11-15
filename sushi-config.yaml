@@ -56,8 +56,11 @@ pages:
   index.md:
     title: EMS-Overview Home
     generation: markdown
-
+  publish.md:
+    title: Publishing in Document Sharing 
+    generation: markdown
     
 menu:
   EMS-Overview Home: index.html
+  Publishing: publish.html
 
