@@ -1,0 +1,22 @@
+@startuml
+skinparam svgDimensionStyle false
+title Paramedicine Care Flow
+participant "Ambulance" as Ambulance
+participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
+autonumber
+activate Ambulance
+activate HIE
+Ambulance -> HIE: (PD) Patient lookup by demographics
+Ambulance -> HIE: (QD/RD/C-CDA) Find/Retrieve best Medical Summary
+Ambulance -> Ambulance: Utilize Medical Summary to treat patient
+
+activate Hospital
+Ambulance -> Hospital: (PUSH/PCS) transport summary 
+Hospital -> HIE: (Pub) Publish Discharge Summary
+deactivate Hospital
+Ambulance -> HIE: (QD/RD) Query/Retrieve - Discharge Summary
+deactivate HIE
+Ambulance -> State: Deliver NEMSIS PCR including outcome data to the state
+deactivate Ambulance
+
+@enduml

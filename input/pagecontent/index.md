@@ -34,18 +34,7 @@ Breaks down to: Patient Discovery, Query for Documents, and Retrieve Document.
 
 **Figure: Use Case 0 General Consumer Process Flow**
 
-#### Publish Documents to HIE
 
-There are two alternatives. The first one shown is where one uses the HIE as a mode of pushing the content to the Destination. In this mode the document is not persisted anywhere, although the Destination may choose to locally use and persist on their own system.
-
-The second alternative has the Source publish the document. This does not have an external interop transaction in XCA, until some other system queries. Thus this mode can be enhanced with a notification to the Destination that the document is available. That notification drives the query and retrieval as discussed above.
-
-<div>
-{%include usecase00-processflow.svg%}
-</div>
-<br clear="all">
-
-**Figure: Use Case 00 General Publication Process Flow**
 
 ### Use Case: Paramedicine Care Flow
 
@@ -55,6 +44,15 @@ the patient arrives. This results in inefficiencies and potential errors in the 
 This profile will map the flow of the patient information from the ambulance patient record, 
 commonly known as the electronic Patient Care Report (ePCR), to the hospital Electronic 
 Medical Record (EMR). 
+
+<div>
+{%include usecase1a-processflow.svg%}
+</div>
+<br clear="all">
+
+**Figure: Use Case 1a High-Level Process Flow**
+
+The following diagram goes into transactional and content details.
 
 <div>
 {%include usecase1-processflow.svg%}
