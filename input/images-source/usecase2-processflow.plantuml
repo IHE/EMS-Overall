@@ -20,7 +20,7 @@ Ambulance -> Ambulance: Utilize Medical Summary to treat patient
 
 activate Hospital
 Ambulance -> Hospital: (PUSH) transport summary 
-Note left of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_RIPT.pdf IHE-Routine Interfacility Patient Transport (RIPT)]]
+Note right of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_RIPT.pdf IHE-Routine Interfacility Patient Transport (RIPT)]]
 
 Ambulance -> Hospital: Drop off patient at Emergency Department
 
