@@ -1,0 +1,29 @@
+@startuml
+skinparam svgDimensionStyle false
+title Publication HIE Flow
+participant "Source" as Source
+participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
+participant "Destination" as Destination
+autonumber
+activate Source
+activate HIE
+activate Destination
+
+group Patient Discovery (PD)
+note right of Source:  XCPD, PDQ*, PIX*, PMIR
+    Source -> HIE: Patient Lookup by Demographics
+    Note right of Source: Provide whatever details are known
+    Source <- HIE: Here are closest matches
+    Source -> Source: Review results for best match
+end group
+
+group Publish Document (Publish) 
+    note right of Source: An XDS Affinity Domain
+    Source -> Source: Persist document in Repository
+    note right of Source: MHDS and XDS support HIE based Repository
+    Source -> HIE: (Publish) metadata
+end group 
+
+note right of HIE: Consumption flow for Destination retrieval
+
+@enduml

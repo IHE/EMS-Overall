@@ -1,6 +1,6 @@
 @startuml
 skinparam svgDimensionStyle false
-title General HIE Flow
+title Consumption HIE Flow
 participant "Consumer" as Consumer
 participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html HIE-Whitepaper]]
 autonumber
@@ -8,6 +8,7 @@ activate Consumer
 activate HIE
 
 group Patient Discovery (PD)
+note right of Consumer:  XCPD, PDQ*, PIX*, PMIR
 Consumer -> HIE: Patient lookup by demographics or identity
 Note left of Consumer: Provide whatever details are known
 Consumer <- HIE: Here are closest matches
@@ -15,6 +16,7 @@ Consumer -> Consumer: Review results for best match
 end group
 
 group Query for Documents (QD)
+note right of Consumer:  XDS, XCA, MHD, MHDS
 Consumer -> HIE: Look for Medical Summary
 Note left of Consumer: Query for classCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely OnDemand Document Entry.
 Consumer <-- HIE: Here is the list of possible Medical Summaries
@@ -23,7 +25,9 @@ Consumer -> Consumer: Pick the freshest or best entry from available document en
 end group
 
 group Retrieve Document (RD)
+note right of Consumer:  XDS, XCA, MHD, MHDS
 Consumer -> HIE: Retrieve //this// document
+note right of HIE: Document location may be HIE or source
 Consumer -> Consumer: Utilize Medical Summary to treat patient
 end group
 
