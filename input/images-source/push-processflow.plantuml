@@ -10,15 +10,15 @@ activate HIE
 activate Destination
 
 group Patient Discovery (PD)
-note right of Source: e.g. XCPD, PDQ*, PIX*, PMIR
+note over HIE: XCPD, PDQ*, PIX*, PMIR
     Source -> HIE: Patient Lookup by Demographics
-    Note left of Source: Provide whatever details are known
+    Note right of Source: Provide whatever details are known
     Source <- HIE: Here are closest matches
     Source -> Source: Review results for best match
 end group
 
 group Alternative 1.1: Point-to-Point 
-note right of Source: E.g. XDR, XDM/e-mail (aka Direct Project), and 360X
+note over HIE: MHD, XDR, XDM/e-mail (aka Direct Project), and 360X
     Source -> Destination: Push document to Destination
     activate Destination
     Source <-- Destination: Success
@@ -26,7 +26,7 @@ note right of Source: E.g. XDR, XDM/e-mail (aka Direct Project), and 360X
     deactivate Destination
 end group
 group Alternative 1.2: HIE mediated Push
-note right of Source: E.g. XDR, and XCDR
+note over HIE:  MHD, XDR, and XCDR
     Source -> HIE: Push document to Destination
     HIE -> Destination: Push document to Destination
     activate Destination

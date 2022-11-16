@@ -10,7 +10,7 @@ activate HIE
 activate Destination
 
 group Patient Discovery (PD)
-note right of Source:  XCPD, PDQ*, PIX*, PMIR
+note over HIE:  XCPD, PDQ*, PIX*, PMIR
     Source -> HIE: Patient Lookup by Demographics
     Note right of Source: Provide whatever details are known
     Source <- HIE: Here are closest matches
@@ -18,7 +18,7 @@ note right of Source:  XCPD, PDQ*, PIX*, PMIR
 end group
 
 group Publish Document (Publish) 
-    note right of Source: An XDS Affinity Domain
+note over HIE:  XDS, MHD, MHDS
     Source -> Source: Persist document in Repository
     note right of Source: MHDS and XDS support HIE based Repository
     Source -> HIE: (Publish) metadata

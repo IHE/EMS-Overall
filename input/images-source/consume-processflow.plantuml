@@ -8,26 +8,26 @@ activate Consumer
 activate HIE
 
 group Patient Discovery (PD)
-note right of Consumer:  XCPD, PDQ*, PIX*, PMIR
+note over HIE:  XCPD, PDQ*, PIX*, PMIR
 Consumer -> HIE: Patient lookup by demographics or identity
-Note left of Consumer: Provide whatever details are known
+Note right of Consumer: Provide whatever details are known
 Consumer <- HIE: Here are closest matches
 Consumer -> Consumer: Review results for best match
 end group
 
 group Query for Documents (QD)
-note right of Consumer:  XDS, XCA, MHD, MHDS
+note over HIE:  XDS, XCA, MHD, MHDS
 Consumer -> HIE: Look for Medical Summary
-Note left of Consumer: Query for classCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely OnDemand Document Entry.
+Note right of Consumer: Query for classCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely OnDemand Document Entry.
 Consumer <-- HIE: Here is the list of possible Medical Summaries
-Note left of Consumer: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=4_Exchange_of_Personal_Health_R CCD / IHE-XPHR]], [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
 Consumer -> Consumer: Pick the freshest or best entry from available document entries
 end group
 
 group Retrieve Document (RD)
-note right of Consumer:  XDS, XCA, MHD, MHDS
+note over HIE:  XDS, XCA, MHD, MHDS
 Consumer -> HIE: Retrieve //this// document
 note right of HIE: Document location may be HIE or source
+Note right of Consumer: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=4_Exchange_of_Personal_Health_R CCD / IHE-XPHR]], [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
 Consumer -> Consumer: Utilize Medical Summary to treat patient
 end group
 
