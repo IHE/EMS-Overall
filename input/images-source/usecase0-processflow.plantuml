@@ -8,7 +8,7 @@ activate Consumer
 activate HIE
 
 group Patient Discovery (PD)
-Consumer -> HIE: Patient lookup by demographics
+Consumer -> HIE: Patient lookup by demographics or identity
 Note left of Consumer: Provide whatever details are known
 Consumer <- HIE: Here are closest matches
 Consumer -> Consumer: Review results for best match
@@ -23,7 +23,7 @@ Consumer -> Consumer: Pick the freshest or best entry from available document en
 end group
 
 group Retrieve Document (RD)
-Consumer -> HIE: Retrieve this document
+Consumer -> HIE: Retrieve //this// document
 Consumer -> Consumer: Utilize Medical Summary to treat patient
 end group
 

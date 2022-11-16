@@ -6,7 +6,7 @@ participant "Health Information Exchange" as HIE [[https://profiles.ihe.net/ITI/
 autonumber
 activate Ambulance
 activate HIE
-Ambulance -> HIE: (PD) Patient lookup by demographics
+Ambulance -> HIE: (PD) Patient lookup by details that you have
 Ambulance -> Ambulance: Review results for best patient match
 
 Ambulance -> HIE: (QD) Look for Medical Summary
@@ -26,8 +26,8 @@ Ambulance -> Hospital: Drop off patient at Emergency Department
 
 Hospital-> Hospital: Admit patient (ADT)
 
-Hospital -> Ambulance: Admit details (undefined method)
-Note right of Ambulance: John/Jane Doe handling with temporary identity
+Hospital -[#red]> Ambulance: Admit details (undefined method)
+Note right of Ambulance #orangered: John/Jane Doe handling with temporary identity
 
 Note right of Ambulance: Need Discharge Summary for reporting\nQuery for classCode=LOINC [[https://loinc.org/18842-5/ 18842-5]]\n* Better - serviceStartTime=(time patient was dropped off)\n* Best - referenceIdList=(admit detail)\nDocument Content:\n* [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=3_4_2_2_Discharge_Summary_Optio XDS-MS Discharge Summary Option]] or \n* [[https://www.hl7.org/ccdasearch/templates/2.16.840.1.113883.10.20.22.1.8.html C-CDA Discharge Summary Option]]
 group alt 1: Subscribe
