@@ -18,7 +18,7 @@ end group
 group Query for Documents (QD)
 note over HIE:  XDS, XCA, MHD, MHDS
 Consumer -> HIE: Look for Medical Summary
-Note right of Consumer: Query for classCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely OnDemand Document Entry.
+Note right of Consumer: Query for typeCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely OnDemand Document Entry.
 Consumer <-- HIE: Here is the list of possible Medical Summaries
 Consumer -> Consumer: Pick the freshest or best entry from available document entries
 end group

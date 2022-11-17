@@ -10,7 +10,7 @@ Ambulance -> HIE: (PD) Patient lookup by demographics or identity
 Ambulance -> Ambulance: Review results for best patient match
 
 Ambulance -> HIE: (QD) Look for Medical Summary
-Note right of Ambulance: Query for classCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#212-dynamic-documents OnDemand Document Entry]].
+Note right of Ambulance: Query for typeCode=LOINC [[https://loinc.org/34133-9/ 34133-9]]\nLikely [[https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#212-dynamic-documents OnDemand Document Entry]].
 Ambulance <-- HIE: Here is the list of possible Medical Summaries
 Note right of Ambulance: [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=4_Exchange_of_Personal_Health_R CCD / IHE-XPHR]], [[https://www.hl7.org/ccdasearch/ C-CDA]] or [[https://hl7.org/fhir/uv/ips/ IPS]]
 Ambulance -> Ambulance: pick the freshest or best entry from available document entries
@@ -28,7 +28,7 @@ Hospital-> Hospital: Admit patient (ADT)
 
 Hospital -[#red]> Ambulance: Admit details (undefined method)
 
-Note right of Ambulance: Need Discharge Summary for reporting\nQuery for classCode=LOINC [[https://loinc.org/18842-5/ 18842-5]]\n* Better - serviceStartTime=(time patient was dropped off)\n* Best - referenceIdList=(admit detail)\nDocument Content:\n* [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=3_4_2_2_Discharge_Summary_Optio XDS-MS Discharge Summary Option]] or \n* [[https://www.hl7.org/ccdasearch/templates/2.16.840.1.113883.10.20.22.1.8.html C-CDA Discharge Summary Option]]
+Note right of Ambulance: Need Discharge Summary for reporting\nQuery for typeCode=LOINC [[https://loinc.org/18842-5/ 18842-5]]\n* Better - serviceStartTime=(time patient was dropped off)\n* Best - referenceIdList=(admit detail)\nDocument Content:\n* [[https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_TF_Vol1.pdf#nameddest=3_4_2_2_Discharge_Summary_Optio XDS-MS Discharge Summary Option]] or \n* [[https://www.hl7.org/ccdasearch/templates/2.16.840.1.113883.10.20.22.1.8.html C-CDA Discharge Summary Option]]
 group alt 1: Subscribe
     Note right of Ambulance: could subscribe if HIE supports XDS Subscribe
     Ambulance -> HIE: Subscribe for Discharge Summary on this patient 
