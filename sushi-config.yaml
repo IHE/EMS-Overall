@@ -2,12 +2,12 @@
 # ───────────────────────────────────────────────────
 # the id should be lowercase made up of "ihe." + {domain acronym} + "." + {profile acronym/short-name}
 # e.g. ihe.iti.mhds, or ihe.iti.basicaudit
-id: ihe.pcc.ems-overview
-canonical: https://profiles.ihe.net/PCC/EMS-Overview
+id: ihe.pcc.ems-overall
+canonical: https://profiles.ihe.net/PCC/EMS-Overall
 version: 0.1.1
-name: IHE_PCC_EMS-Overview
+name: IHE_PCC_EMS-Overall
 title: "EMS Interoperability Solutions"
-description: Overview of solving the EMS Interoperability needs with IHE-Profiles
+description: Overall overview of solving the EMS Interoperability needs with IHE-Profiles
 releaseLabel: ci-build
 #releaseLabel: Trial-Implementation
 #date: 2022-01-02
