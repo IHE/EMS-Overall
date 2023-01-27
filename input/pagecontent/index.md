@@ -16,7 +16,8 @@ This section contains guidance on [IHE](https://profiles.ihe.net) offerings for 
 - [Patient Identity Management](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#5-patient-identity-management): Whitepaper, and Profiles
 - [Provider Directory Solutions](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#6-common-provider-directory): Profiles, and Content
 - [Security and Privacy Solutions](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#7-security-and-privacy): Handbooks, Profiles, and Content
-- Webinar: [Document Sharing on FHIR](https://www.youtube.com/watch?v=3sDgnS71m4o)
+- Webinar: [Document Sharing on FHIR using Mobile Health Document Sharing (MHDS)](https://youtu.be/KzJ8FJZnD_Y)
+- Webinar: [EMS and IHE working together](https://youtu.be/6j3SZzVbE2Q)
 - Two simplified Document Sharing diagrams
   - The [consumption of documents](pdqdrd.html)
   - The [publication details have multiple paths](publish.html)
